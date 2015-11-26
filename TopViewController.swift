@@ -11,7 +11,6 @@ import UIKit
 
 class TopViewController: UIViewController {
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,38 +18,38 @@ class TopViewController: UIViewController {
         view.backgroundColor = UIColor.whiteColor()
 
         // 文字を書く為のlabelを作成
-        let MyLabel: UILabel = UILabel(frame: CGRectMake(0,0,500,500))
+        let titleLabel: UILabel = UILabel(frame: CGRectMake(0,0,500,500))
         // 入力する文字を書く
-        MyLabel.text = "Mac Snap!!"
+        titleLabel.text = "Mac Snap!!"
         // 文字の大きさを指定する
-        MyLabel.font = UIFont.systemFontOfSize(CGFloat(50))
+        titleLabel.font = UIFont.systemFontOfSize(CGFloat(50))
         // 文字の色を白にする.
-        MyLabel.textColor = UIColor.blackColor()
+        titleLabel.textColor = UIColor.blackColor()
         // 文字の影の色をグレーにする.
-        MyLabel.shadowColor = UIColor.whiteColor()
+        titleLabel.shadowColor = UIColor.whiteColor()
         // Textを中央寄せにする.
-        MyLabel.textAlignment = NSTextAlignment.Center
+        titleLabel.textAlignment = NSTextAlignment.Center
         // 配置する座標を設定する.
-        MyLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 200)
+        titleLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 200)
         // ViewにLabelを追加.
-        self.view.addSubview(MyLabel)
+        self.view.addSubview(titleLabel)
 
         // 文字を書く為のlabelを作成
-        let myLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,150))
+        let destroLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,150))
         // 入力する文字を書く
-        myLabel.text = "By destro"
+        destroLabel.text = "By destro"
         // 文字の大きさを指定する
-        myLabel.font = UIFont.systemFontOfSize(CGFloat(30))
+        destroLabel.font = UIFont.systemFontOfSize(CGFloat(30))
         // 文字の色を白にする.
-        myLabel.textColor = UIColor.blackColor()
+        destroLabel.textColor = UIColor.blackColor()
         // 文字の影の色をグレーにする.
-        myLabel.shadowColor = UIColor.whiteColor()
+        destroLabel.shadowColor = UIColor.whiteColor()
         // Textを中央寄せにする.
-        myLabel.textAlignment = NSTextAlignment.Center
+        destroLabel.textAlignment = NSTextAlignment.Center
         // 配置する座標を設定する.
-        myLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 200+50)
+        destroLabel.layer.position = CGPoint(x: self.view.bounds.width/2,y: 200+50)
         // ViewにLabelを追加.
-        self.view.addSubview(myLabel)
+        self.view.addSubview(destroLabel)
         
         
         // Startボタンを作成.
@@ -60,12 +59,12 @@ class TopViewController: UIViewController {
         startButton.setTitle("START", forState: .Normal)
         startButton.layer.cornerRadius = 20.0
         startButton.layer.position = CGPoint(x: self.view.bounds.width/2 , y:self.view.bounds.height-200)
-        startButton.addTarget(self, action: "onClickMyButton:", forControlEvents: .TouchUpInside)
+        startButton.addTarget(self, action: "onClickStartButton:", forControlEvents: .TouchUpInside)
         self.view.addSubview(startButton);
     }
     
     
-    internal func onClickMyButton(sender: UIButton){
+    internal func onClickStartButton(sender: UIButton){
         // 遷移するViewを定義する.
         let secondViewController: UIViewController = GameViewController()
         // アニメーションを設定する.
