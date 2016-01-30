@@ -7,14 +7,29 @@
 //
 
 import UIKit
-
+import AVFoundation
 
 class ScoreViewController: UIViewController {
 
+    var ClearBGMplayer:AVAudioPlayer = AVAudioPlayer()
     var ScoreLabel : UILabel!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
+        let audioPath = NSBundle.mainBundle().pathForResource("CLEAR", ofType: "mp3")!
+        do{
+            try ClearBGMplayer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: audioPath))
+            ClearBGMplayer.play()
+            ClearBGMplayer.numberOfLoops = -1
+            print("ScoreBGM.play")
+        }catch{
+            print("Music stop")
+        }
+        
+        
         let count2 = NSUserDefaults.standardUserDefaults()
         let score = count2.integerForKey("count")
 
@@ -63,6 +78,9 @@ class ScoreViewController: UIViewController {
     
     
     internal func onClickTopButton(sender: UIButton){
+        ClearBGMplayer.stop()
+        print("ClearBGM.Stop")
+        print("go to Top")
         // 遷移するViewを定義する.
         let ViewController: UIViewController = TopViewController()
         // アニメーションを設定する.
@@ -73,12 +91,15 @@ class ScoreViewController: UIViewController {
     
     
     internal func onClickReplayButton(sender: UIButton){
+        ClearBGMplayer.stop()
+        print("ClearBGM.Stop")
+        print("go to Game")
         // 遷移するViewを定義する.
-        let ViewController: UIViewController = GameViewController()
+        let secondViewController: UIViewController = GameViewController()
         // アニメーションを設定する.
-        ViewController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+        secondViewController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
         // Viewの移動する.
-        self.presentViewController(ViewController, animated: true, completion: nil)
+        self.presentViewController(secondViewController, animated: true, completion: nil)
     }
     
         
